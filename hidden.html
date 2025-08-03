@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCorp - Developer Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --terminal-green: #4AF626;
+            --terminal-text: #E0E0E0;
+            --accent: #FF5555;
+        }
+        
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: var(--dark-bg);
+            color: var(--terminal-green);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .terminal {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid var(--terminal-green);
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(74, 246, 38, 0.2);
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--terminal-green);
+        }
+        
+        .terminal-title {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .terminal-controls span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: 5px;
+            background-color: var(--terminal-green);
+        }
+        
+        .command {
+            color: var(--terminal-text);
+        }
+        
+        .prompt {
+            color: var(--accent);
+        }
+        
+        .output {
+            margin: 20px 0;
+        }
+        
+        .flag {
+            background-color: rgba(74, 246, 38, 0.1);
+            padding: 15px;
+            border-left: 3px solid var(--accent);
+            margin: 30px 0;
+            font-weight: 700;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        button {
+            background-color: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-title">developer-portal</div>
+            <div class="terminal-controls">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="command">$ nmap -sS 192.168.1.100</div>
+        
+        <div class="output">
+            Starting Nmap 7.80 ( https://nmap.org )<br>
+            Nmap scan report for 192.168.1.100<br>
+            Host is up (0.002s latency).<br>
+            Not shown: 998 filtered ports<br>
+            PORT     STATE  SERVICE<br>
+            80/tcp   open   http<br>
+            <span style="color: var(--accent);">8080/tcp open   http-proxy</span><br><br>
+            Nmap done: 1 IP address (1 host up) scanned in 2.34 seconds
+        </div>
+        
+        <div class="command">$ curl http://192.168.1.100:8080</div>
+        
+        <div class="output">
+            &lt;!DOCTYPE html&gt;<br>
+            &lt;html&gt;<br>
+            &lt;head&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;SecureCorp - Developer Portal&lt;/title&gt;<br>
+            &lt;/head&gt;<br>
+            &lt;body&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Congratulations! You found the hidden developer portal --&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- This interface is not publicly documented --&gt;<br>
+            &lt;/body&gt;<br>
+            &lt;/html&gt;
+        </div>
+        
+        <div class="flag">
+            Congratulations! You've discovered our hidden developer portal.<br><br>
+            FLAG: <strong>CTF{h1dd3n_p0rt_8080_1s_th3_k3y}</strong>
+            <a href = "https://www.mediafire.com/folder/yqhs1kwjz2mfq/ZeusSphinx"><button>Download File Virus</button></a>
+        </div>
+        
+        <div class="command">$ <span class="blink">_</span></div>
+    </div>
+</body>
+</html>

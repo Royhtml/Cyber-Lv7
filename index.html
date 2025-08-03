@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCorp - Portal Resmi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            padding: 40px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .hidden-comment {
+            display: none;
+            /* Flag palsu: CTF{ini_bukan_flag_sebenarnya} */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">SecureCorp</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Secure Your Digital Assets</h1>
+            <p>Enterprise-grade security solutions for your business needs. Nothing suspicious here, just regular corporate website.</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section class="content-section">
+            <div class="card">
+                <h2>About Our Company</h2>
+                <p>SecureCorp has been providing top-tier security solutions since 2005. Our team of experts ensures your data remains protected against all threats.</p>
+                <p>We specialize in network security, penetration testing, and security awareness training.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Vulnerability Assessment</li>
+                    <li>Penetration Testing</li>
+                    <li>Security Audits</li>
+                    <li>Incident Response</li>
+                </ul>
+                <p>All our services comply with international security standards.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>Email: info@securecorp.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Address: 123 Security Ave, Cyberspace</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SecureCorp. All rights reserved.</p>
+            <p>Nothing to see here. Definitely no hidden ports or services.</p>
+        </div>
+    </footer>
+    
+    <div class="hidden-comment">
+        <!-- Developer note: Test deployment on port 8080 seems unstable -->
+    </div>
+
+    <script>
+        // api/scan.js
+export default function handler(req, res) {
+  const { target } = req.query;
+  
+  // Simulasi hasil scan
+  const results = {
+    target,
+    ports: [
+      { port: 80, state: 'open', service: 'http' },
+      { port: 443, state: 'open', service: 'https' },
+      { port: 8080, state: 'filtered', service: 'http-alt' }
+    ],
+    flag: target === 'localhost' ? 'CTF{simulated_scan_works}' : null
+  };
+
+  res.status(200).json(results);
+}
+    </script>
+</body>
+</html>
